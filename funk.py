@@ -1,5 +1,6 @@
 import time
-a = [2,4,14,7,4,1,26,463,63,1,34,5,2,45,2,55]
+import random
+a = [random.randint(-10,10) for i in range(38)]
 
 def bubble(array):
     st=time.time()
@@ -13,8 +14,9 @@ def bubble(array):
                 array[j],array[j+1]=array[j+1],array[j]
             it+=1
     t=time.time() - st
+    print(t)
     print(it)
-    print("%s" % t)
+
     return array
 
 
@@ -31,9 +33,9 @@ def bubble_plus(array):
                 array[i], array[i + 1] = array[i + 1], array[i]
                 zam = True
             it += 1
-    t = time.time() - st
+
     print(it)
-    print("%s" % t)
+
     return array
 
 
