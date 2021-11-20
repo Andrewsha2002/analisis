@@ -1,6 +1,6 @@
 import time
 import random
-a = [random.randint(-10,10) for i in range(38)]
+a = [random.randint(1,100) for i in range(1000)]
 
 def bubble(array):
     st=time.time()
@@ -12,7 +12,7 @@ def bubble(array):
 
             if array[j] > array[j+1]:
                 array[j],array[j+1]=array[j+1],array[j]
-            it+=1
+                it+=1
     t=time.time() - st
     print(t)
     print(it)
@@ -32,7 +32,7 @@ def bubble_plus(array):
 
                 array[i], array[i + 1] = array[i + 1], array[i]
                 zam = True
-            it += 1
+                it += 1
 
     print(it)
 
