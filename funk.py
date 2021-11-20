@@ -1,5 +1,5 @@
 import time
-a = [2,4,14,7,4,75,26,463,636]
+a = [2,4,14,7,4,1,26,463,63,1,34,5,2,45,2,55]
 
 def bubble(array):
     st=time.time()
@@ -15,7 +15,28 @@ def bubble(array):
     t=time.time() - st
     print(it)
     print("%s" % t)
+    return array
 
-bubble(a)
-print(a)
 
+def bubble_plus(array):
+    zam = True
+    st = time.time()
+    it = 0
+
+    while (zam):
+        zam = False
+        for i in range(len(array) - it - 1):
+            if array[i] > array[i + 1]:
+
+                array[i], array[i + 1] = array[i + 1], array[i]
+                zam = True
+            it += 1
+    t = time.time() - st
+    print(it)
+    print("%s" % t)
+    return array
+
+
+
+print(bubble(a))
+print(bubble_plus(a))
