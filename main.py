@@ -1,7 +1,14 @@
 import funk
 import random
-a = [random.randint(-10,10) for i in range(38)]
+for i in range(2,40,2):
+    a=[random.randint(-10,10) for n in range(1,i+1)]
+    print(a)
 
-funk.bubble(a)
 
-print("suka bliat")
+
+    funk.bubble_plus(a)
+    print(a)
+    funk.bubble(a)
+    print(a)
+    funk.shaker(a)
+    print(a)

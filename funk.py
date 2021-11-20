@@ -1,6 +1,6 @@
 import time
 import random
-a = [random.randint(1,100) for i in range(1000)]
+a = [random.randint(1,100) for i in range(100)]
 
 def bubble(array):
     st=time.time()
@@ -21,26 +21,47 @@ def bubble(array):
 
 
 def bubble_plus(array):
-    zam = True
+    t = len(array)
     st = time.time()
     it = 0
 
-    while (zam):
-        zam = False
-        for i in range(len(array) - it - 1):
-            if array[i] > array[i + 1]:
+    while t > 0 :
 
-                array[i], array[i + 1] = array[i + 1], array[i]
-                zam = True
+        for i in range(1 , len(array)):
+
+            if array[i] < array[i - 1]:
+
+                array[i], array[i - 1] = array[i - 1], array[i]
+
                 it += 1
+        t-=1
+    print(time.time() - st)
 
     print(it)
 
     return array
 
 
+def shaker(array):
+    left = 0
+    right = len(array) - 1
+    st = time.time()
+    it = 0
+    while left <= right:
+        for i in range(left, right, +1):
+            if array[i] > array[i + 1]:
+                array[i], array[i + 1] = array[i + 1], array[i]
+                it += 1
+        right -= 1
 
+        for i in range(right, left, -1):
+            if array[i - 1] > array[i]:
+                array[i], array[i - 1] = array[i - 1], array[i]
+                it += 1
+        left += 1
+    print(time.time() - st)
 
-
-print(bubble(a))
-print(bubble_plus(a))
+    print(it)
+    return array
+shaker(a)
+print(a)
