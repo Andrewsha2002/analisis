@@ -3,21 +3,22 @@ import random
 a = [random.randint(1,100) for i in range(100)]
 
 def bubble(array):
-    st=time.time()
-    l = len(array)
+    b = array
+    st = time.time()
+    l = len(b)
     it = 0
     for i in range(l):
 
         for j in range(0, l-i-1):
 
-            if array[j] > array[j+1]:
-                array[j],array[j+1]=array[j+1],array[j]
-                it+=1
-    t=time.time() - st
+            if b[j] > b[j + 1]:
+                b[j], b[j + 1]= b[j + 1], b[j]
+                it += 1
+    t = time.time() - st
     print(t)
     print(it)
 
-    return array
+
 
 
 def bubble_plus(array):
@@ -63,5 +64,32 @@ def shaker(array):
 
     print(it)
     return array
-shaker(a)
-print(a)
+
+def vibor(array):
+    st = time.time()
+    it = 0
+    for i in range(0, len(array) - 1):
+        min = i
+        for j in range(i + 1, len(array)):
+            if array[j] < array[min]:
+                min = j
+                it += 1
+        array[i], array[min] = array[min], array[i]
+    print(time.time() - st)
+    print(it)
+    return(a)
+
+def vstavka(array):
+    st = time.time()
+    it = 0
+    for i in range(1, len(array)):
+        temp = array[i]
+        j = i - 1
+        while (j >= 0 and temp < array[j]):
+            array[j + 1] = array[j]
+            j = j - 1
+        array[j + 1] = temp
+        it += 1
+    print(time.time() - st)
+    print(it)
+

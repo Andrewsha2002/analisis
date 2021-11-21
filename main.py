@@ -6,9 +6,8 @@ for i in range(2,40,2):
 
 
 
-    funk.bubble_plus(a)
+
     print(a)
     funk.bubble(a)
     print(a)
-    funk.shaker(a)
-    print(a)
+print(a)
