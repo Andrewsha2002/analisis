@@ -4,13 +4,14 @@ a = [random.randint(1,100) for i in range(100)]
 
 def bubble(array):
     b = array
+    sr = 0
     st = time.clock()
     l = len(b)
     it = 0
     for i in range(l):
 
         for j in range(0, l-i-1):
-
+            sr += 1
             if b[j] > b[j + 1]:
                 b[j], b[j + 1]= b[j + 1], b[j]
                 it += 1
