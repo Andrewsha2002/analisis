@@ -4,7 +4,7 @@ a = [random.randint(1,100) for i in range(100)]
 
 def bubble(array):
     b = array
-    st = time.time()
+    st = time.clock()
     l = len(b)
     it = 0
     for i in range(l):
@@ -14,7 +14,7 @@ def bubble(array):
             if b[j] > b[j + 1]:
                 b[j], b[j + 1]= b[j + 1], b[j]
                 it += 1
-    t = time.time() - st
+    t = time.clock() - st
     print(t)
     print(it)
     print(array)
@@ -24,7 +24,7 @@ def bubble(array):
 
 def bubble_plus(array):
     t = len(array)
-    st = time.time()
+    st = time.clock()
     it = 0
 
     while t > 0 :
@@ -37,7 +37,7 @@ def bubble_plus(array):
 
                 it += 1
         t-=1
-    print(time.time() - st)
+    print(time.clock() - st)
 
     print(it)
 
@@ -47,7 +47,7 @@ def bubble_plus(array):
 def shaker(array):
     left = 0
     right = len(array) - 1
-    st = time.time()
+    st = time.clock()
     it = 0
     while left <= right:
         for i in range(left, right, +1):
@@ -61,13 +61,13 @@ def shaker(array):
                 array[i], array[i - 1] = array[i - 1], array[i]
                 it += 1
         left += 1
-    print(time.time() - st)
+    print(time.clock() - st)
 
     print(it)
     return array
 
 def vibor(array):
-    st = time.time()
+    st = time.clock()
     it = 0
     for i in range(0, len(array) - 1):
         min = i
@@ -76,12 +76,12 @@ def vibor(array):
                 min = j
                 it += 1
         array[i], array[min] = array[min], array[i]
-    print(time.time() - st)
+    print(time.clock() - st)
     print(it)
     return(a)
 
 def vstavka(array):
-    st = time.time()
+    st = time.clock()
     it = 0
     for i in range(1, len(array)):
         temp = array[i]
@@ -91,6 +91,6 @@ def vstavka(array):
             j = j - 1
         array[j + 1] = temp
         it += 1
-    print(time.time() - st)
+    print(time.clock() - st)
     print(it)
 

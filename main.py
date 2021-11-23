@@ -7,6 +7,6 @@ for i in range(2,40,2):
 
 
 
-print(a)
-funk.bubble(a[:])
-print(a)
+    print(a)
+    funk.bubble(a[:])
+    print(a)
