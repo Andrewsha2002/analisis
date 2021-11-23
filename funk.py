@@ -17,6 +17,7 @@ def bubble(array):
     t = time.time() - st
     print(t)
     print(it)
+    print(array)
 
 
 
