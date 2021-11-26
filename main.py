@@ -9,4 +9,8 @@ for i in range(2,40,2):
 
     print(a)
     funk.bubble(a[:])
+    funk.bubble_plus(a[:])
+    funk.vibor(a[:])
+    funk.shaker(a[:])
+    funk.vstavka(a[:])
     print(a)
