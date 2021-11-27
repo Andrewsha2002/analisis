@@ -25,14 +25,14 @@ def bubble(array):
 
 
 def bubble_plus(array):
-    t = len(array)
+    r = len(array)
     st = time.time()
     it = 0
     sr = 0
-    while t > 0 :
+    while r > 0 :
         it += 1
 
-        for i in range(1 , len(array)):
+        for i in range(1 , r):
             it += 1
             if array[i] < array[i - 1]:
 
@@ -43,7 +43,7 @@ def bubble_plus(array):
     t = time.time() - st
     print('{:0.9f}'.format(t))
 
-    print(it)
+
 
     return t,it,sr
 
