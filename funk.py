@@ -39,7 +39,7 @@ def bubble_plus(array):
                 array[i], array[i - 1] = array[i - 1], array[i]
 
                 sr += 1
-
+        r -=1
     t = time.time() - st
     print('{:0.9f}'.format(t))
 
