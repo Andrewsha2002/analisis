@@ -135,3 +135,31 @@ def shell_sort(array) :
     print('{:0.9f}'.format(t))
     return t,it,sr
 
+def quicksort(array):
+    st = time.time()
+    it = 0
+
+    sr = 0
+
+    if len(array) <= 1:
+        sr += 1
+        t = time.time() - st
+        return t,it,sr
+    else:
+       q = random.choice(array)
+       s_array = []
+       m_array = []
+       e_array = []
+
+        for n in array:
+            it += 1
+            if n < q:
+                sr += 1
+                s_array.append(n)
+            elif n > q:
+                sr += 1
+                m_array.append(n)
+            else:
+                sr += 1
+                e_array.append(n)
+        return quicksort(s_array) + e_array + quicksort(m_array)
