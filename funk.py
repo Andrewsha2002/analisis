@@ -19,7 +19,7 @@ def bubble(array):
     print('{:0.9f}'.format(t))
 
     print(it)
-    print(array)
+    return array
 
 
 
