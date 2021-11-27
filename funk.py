@@ -19,7 +19,7 @@ def bubble(array):
     print('{:0.9f}'.format(t))
 
     print(it)
-    return array
+    return t,it,sr
 
 
 
@@ -45,7 +45,7 @@ def bubble_plus(array):
 
     print(it)
 
-    return array
+    return t,it,sr
 
 
 def shaker(array):
@@ -73,7 +73,7 @@ def shaker(array):
     print('{:0.9f}'.format(t))
 
     print(it)
-    return array
+    return t,it,sr
 
 def vibor(array):
     st = time.time()
@@ -92,7 +92,7 @@ def vibor(array):
     t = time.time() - st
     print('{:0.9f}'.format(t))
     print(it)
-    return array
+    return t,it,sr
 
 def vstavka(array):
     st = time.time()
@@ -110,7 +110,7 @@ def vstavka(array):
     t = time.time() - st
     print('{:0.9f}'.format(t))
     print(it)
-    return array
+    return t,it,sr
 
 def shell_sort(array) :
     st = time.time()
