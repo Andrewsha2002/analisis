@@ -83,7 +83,7 @@ def vibor(array):
     t = time.time() - st
     print('{:0.9f}'.format(t))
     print(it)
-    return(a)
+    return array
 
 def vstavka(array):
     st = time.time()
@@ -99,4 +99,23 @@ def vstavka(array):
     t = time.time() - st
     print('{:0.9f}'.format(t))
     print(it)
+    return array
+
+def shell_sort(array) :
+    st = time.time()
+    it = 0
+    step = len(array) // 2
+    while step > 0:
+        for i in range(step, len(array) ):
+            j = i
+            delta = j - step
+            while delta >= 0 and array[delta] > array[j]:
+                array[delta], array[j] = array[j], array[delta]
+                j = delta
+                delta = j - step
+        step //= 2
+
+    t = time.time() - st
+    print('{:0.9f}'.format(t))
+    return array
 
