@@ -9,12 +9,12 @@ def bubble(array):
     l = len(b)
     it = 0
     for i in range(l):
-
+        it += 1
         for j in range(0, l-i-1):
-            sr += 1
+            it += 1
             if b[j] > b[j + 1]:
                 b[j], b[j + 1]= b[j + 1], b[j]
-                it += 1
+                sr += 1
     t = time.time() - st
     print('{:0.9f}'.format(t))
 
@@ -28,17 +28,18 @@ def bubble_plus(array):
     t = len(array)
     st = time.time()
     it = 0
-
+    sr = 0
     while t > 0 :
+        it += 1
 
         for i in range(1 , len(array)):
-
+            it += 1
             if array[i] < array[i - 1]:
 
                 array[i], array[i - 1] = array[i - 1], array[i]
 
-                it += 1
-        t-=1
+                sr += 1
+
     t = time.time() - st
     print('{:0.9f}'.format(t))
 
@@ -56,14 +57,14 @@ def shaker(array):
     while left <= right:
         it += 1
         for i in range(left, right, +1):
-
+            it += 1
             if array[i] > array[i + 1]:
                 array[i], array[i + 1] = array[i + 1], array[i]
                 sr += 1
         right -= 1
 
         for i in range(right, left, -1):
-
+            it += 1
             if array[i - 1] > array[i]:
                 array[i], array[i - 1] = array[i - 1], array[i]
                 sr += 1
