@@ -222,3 +222,4 @@ Allfunk.append(starter(-100, 100, funk))
 
 print(Allfunk)
 vizualize(Allfunk)
+#hello world!
