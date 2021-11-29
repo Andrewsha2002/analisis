@@ -2,7 +2,7 @@ import time
 
 import matplotlib.pyplot as plt
 import numpy as np
-from random import randint
+from random import randint,random,choice
 
 
 
@@ -138,7 +138,7 @@ def shell_sort(array) :
     t = time.time() - st
     print('{:0.9f}'.format(t))
     return t,it,sr
-"""
+
 def quicksort(array):
     st = time.time()
     it = 0
@@ -150,11 +150,10 @@ def quicksort(array):
         t = time.time() - st
         return t,it,sr
     else:
-       q = random.choice(array)
-       s_array = []
-       m_array = []
-       e_array = []
-
+        q = choice(array)
+        s_array = []
+        m_array = []
+        e_array = []
         for n in array:
             it += 1
             if n < q:
@@ -166,8 +165,8 @@ def quicksort(array):
             else:
                 sr += 1
                 e_array.append(n)
-        return quicksort(s_array) + e_array + quicksort(m_array)
-"""
+        return quicksort(s_array) + quicksort(e_array) + quicksort(m_array)
+
 
 Allfunk = []
 
@@ -222,6 +221,5 @@ Allfunk.append(starter(-100, 100, funk))
 
 print(Allfunk)
 vizualize(Allfunk)
-#hello world!
-#hello world!
-#hello world!
+
+
