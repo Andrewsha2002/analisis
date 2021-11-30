@@ -15,4 +15,5 @@ for i in range(2,40,2):
     funk.vstavka(a[:])
     funk.shell_sort(a[:])
 print(a[:])
+
 #hello world

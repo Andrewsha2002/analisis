@@ -9,7 +9,7 @@ from random import randint,random,choice
 def bubble(array):
     b = array
     sr = 0
-    st = time.time()
+    st = time.clock()
     l = len(b)
     it = 0
     for i in range(l):
@@ -19,7 +19,7 @@ def bubble(array):
             if b[j] > b[j + 1]:
                 b[j], b[j + 1]= b[j + 1], b[j]
                 sr += 1
-    t = time.time() - st
+    t = time.clock() - st
     print('{:0.9f}'.format(t))
 
     print(it)
@@ -30,7 +30,7 @@ def bubble(array):
 
 def bubble_plus(array):
     r = len(array)
-    st = time.time()
+    st = time.clock()
     it = 0
     sr = 0
     while r > 0 :
@@ -44,7 +44,7 @@ def bubble_plus(array):
 
                 sr += 1
         r -=1
-    t = time.time() - st
+    t = time.clock() - st
     print('{:0.9f}'.format(t))
 
 
@@ -55,7 +55,7 @@ def bubble_plus(array):
 def shaker(array):
     left = 0
     right = len(array) - 1
-    st = time.time()
+    st = time.clock()
     it = 0
     sr = 0
     while left <= right:
@@ -73,14 +73,14 @@ def shaker(array):
                 array[i], array[i - 1] = array[i - 1], array[i]
                 sr += 1
         left += 1
-    t = time.time() - st
+    t = time.clock() - st
     print('{:0.9f}'.format(t))
 
     print(it)
     return t,it,sr
 
 def vibor(array):
-    st = time.time()
+    st = time.clock()
     it = 0
     sr = 0
     for i in range(0, len(array) - 1):
@@ -93,13 +93,13 @@ def vibor(array):
                 min = j
 
         array[i], array[min] = array[min], array[i]
-    t = time.time() - st
+    t = time.clock() - st
     print('{:0.9f}'.format(t))
     print(it)
     return t,it,sr
 
 def vstavka(array):
-    st = time.time()
+    st = time.clock()
     it = 0
     sr = 0
     for i in range(1, len(array)):
@@ -111,13 +111,13 @@ def vstavka(array):
             j = j - 1
         array[j + 1] = temp
         it += 1
-    t = time.time() - st
+    t = time.clock() - st
     print('{:0.9f}'.format(t))
     print(it)
     return t,it,sr
 
 def shell_sort(array) :
-    st = time.time()
+    st = time.clock()
     it = 0
     step = len(array) // 2
     sr = 0
@@ -135,19 +135,19 @@ def shell_sort(array) :
                 sr += 2
         step //= 2
 
-    t = time.time() - st
+    t = time.clock() - st
     print('{:0.9f}'.format(t))
     return t,it,sr
 
 def quicksort(array):
-    st = time.time()
+    st = time.clock()
     it = 0
 
     sr = 0
 
     if len(array) <= 1:
         sr += 1
-        t = time.time() - st
+        t = time.clock() - st
         return t,it,sr
     else:
         q = choice(array)
@@ -215,8 +215,15 @@ funk = lambda Array: bubble(Array)
 Allfunk.append(starter(-100, 100, funk))
 funk = lambda Array: bubble_plus(Array)
 Allfunk.append(starter(-100, 100, funk))
+funk = lambda Array: shaker(Array)
+Allfunk.append(starter(-100, 100, funk))
+funk = lambda Array: vibor(Array)
+Allfunk.append(starter(-100, 100, funk))
 funk = lambda Array: vstavka(Array)
 Allfunk.append(starter(-100, 100, funk))
+funk = lambda Array: shell_sort(Array)
+Allfunk.append(starter(-100, 100, funk))
+
 ####################
 
 print(Allfunk)
