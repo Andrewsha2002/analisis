@@ -1,61 +1,55 @@
 import time
 
 import matplotlib.pyplot as plt
-import numpy as np
-from random import randint,random,choice
 
+from random import randint
 
 
 def bubble(array):
     b = array
     sr = 0
-    st = time.clock()
+    st = time.time()
     l = len(b)
     it = 0
     for i in range(l):
         it += 1
-        for j in range(0, l-i-1):
+        for j in range(0, l - i - 1):
             it += 1
             if b[j] > b[j + 1]:
-                b[j], b[j + 1]= b[j + 1], b[j]
+                b[j], b[j + 1] = b[j + 1], b[j]
                 sr += 1
-    t = time.clock() - st
+    t = time.time() - st
     print('{:0.9f}'.format(t))
 
     print(it)
-    return t,it,sr
-
-
+    return t, it, sr
 
 
 def bubble_plus(array):
     r = len(array)
-    st = time.clock()
+    st = time.time()
     it = 0
     sr = 0
-    while r > 0 :
+    while r > 0:
         it += 1
 
-        for i in range(1 , r):
+        for i in range(1, r):
             it += 1
             if array[i] < array[i - 1]:
-
                 array[i], array[i - 1] = array[i - 1], array[i]
 
                 sr += 1
-        r -=1
-    t = time.clock() - st
+        r -= 1
+    t = time.time() - st
     print('{:0.9f}'.format(t))
 
-
-
-    return t,it,sr
+    return t, it, sr
 
 
 def shaker(array):
     left = 0
     right = len(array) - 1
-    st = time.clock()
+    st = time.time()
     it = 0
     sr = 0
     while left <= right:
@@ -73,14 +67,15 @@ def shaker(array):
                 array[i], array[i - 1] = array[i - 1], array[i]
                 sr += 1
         left += 1
-    t = time.clock() - st
+    t = time.time() - st
     print('{:0.9f}'.format(t))
 
     print(it)
-    return t,it,sr
+    return t, it, sr
+
 
 def vibor(array):
-    st = time.clock()
+    st = time.time()
     it = 0
     sr = 0
     for i in range(0, len(array) - 1):
@@ -93,13 +88,14 @@ def vibor(array):
                 min = j
 
         array[i], array[min] = array[min], array[i]
-    t = time.clock() - st
+    t = time.time() - st
     print('{:0.9f}'.format(t))
     print(it)
-    return t,it,sr
+    return t, it, sr
+
 
 def vstavka(array):
-    st = time.clock()
+    st = time.time()
     it = 0
     sr = 0
     for i in range(1, len(array)):
@@ -111,23 +107,23 @@ def vstavka(array):
             j = j - 1
         array[j + 1] = temp
         it += 1
-    t = time.clock() - st
+    t = time.time() - st
     print('{:0.9f}'.format(t))
     print(it)
-    return t,it,sr
+    return t, it, sr
 
-def shell_sort(array) :
-    st = time.clock()
+
+def shell_sort(array):
+    st = time.time()
     it = 0
     step = len(array) // 2
     sr = 0
     while step > 0:
         sr += 1
-        for i in range(step, len(array) ):
+        for i in range(step, len(array)):
             j = i
             delta = j - step
             while delta >= 0 and array[delta] > array[j]:
-
                 array[delta], array[j] = array[j], array[delta]
                 j = delta
                 delta = j - step
@@ -135,37 +131,36 @@ def shell_sort(array) :
                 sr += 2
         step //= 2
 
-    t = time.clock() - st
+    t = time.time() - st
     print('{:0.9f}'.format(t))
-    return t,it,sr
+    return t, it, sr
+
 
 def quicksort(array):
-    st = time.clock()
+    st = time.time()
     it = 0
-
     sr = 0
-
-    if len(array) <= 1:
-        sr += 1
-        t = time.clock() - st
-        return t,it,sr
+    if len(array) == 1 or len(array) == 0:
+        return array
     else:
-        q = choice(array)
-        s_array = []
-        m_array = []
-        e_array = []
-        for n in array:
-            it += 1
-            if n < q:
-                sr += 1
-                s_array.append(n)
-            elif n > q:
-                sr += 1
-                m_array.append(n)
-            else:
-                sr += 1
-                e_array.append(n)
-        return quicksort(s_array) + quicksort(e_array) + quicksort(m_array)
+        ved = array[0]
+        i = 0
+        for j in range(len(array) - 1):
+            if array[j + 1] < ved:
+                array[j + 1], array[i + 1] = array[i + 1], array[j + 1]
+                i += 1
+        array[0], array[i] = array[i], array[0]
+        first_part = quicksort(array[:i])
+        second_part = quicksort(array[i + 1:])
+        first_part.append(array[i])
+        c = first_part + second_part
+
+    t = time.time() - st
+    print('{:0.9f}'.format(t))
+
+    return c
+
+
 
 
 Allfunk = []
@@ -228,5 +223,3 @@ Allfunk.append(starter(-100, 100, funk))
 
 print(Allfunk)
 vizualize(Allfunk)
-
-
