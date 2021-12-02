@@ -19,9 +19,6 @@ def bubble(array):
                 b[j], b[j + 1] = b[j + 1], b[j]
                 sr += 1
     t = time.time() - st
-    print('{:0.9f}'.format(t))
-
-    print(it)
     return t, it, sr
 
 
@@ -41,7 +38,6 @@ def bubble_plus(array):
                 sr += 1
         r -= 1
     t = time.time() - st
-    print('{:0.9f}'.format(t))
 
     return t, it, sr
 
@@ -68,9 +64,7 @@ def shaker(array):
                 sr += 1
         left += 1
     t = time.time() - st
-    print('{:0.9f}'.format(t))
 
-    print(it)
     return t, it, sr
 
 
@@ -89,8 +83,7 @@ def vibor(array):
 
         array[i], array[min] = array[min], array[i]
     t = time.time() - st
-    print('{:0.9f}'.format(t))
-    print(it)
+
     return t, it, sr
 
 
@@ -108,8 +101,7 @@ def vstavka(array):
         array[j + 1] = temp
         it += 1
     t = time.time() - st
-    print('{:0.9f}'.format(t))
-    print(it)
+
     return t, it, sr
 
 
@@ -132,7 +124,6 @@ def shell_sort(array):
         step //= 2
 
     t = time.time() - st
-    print('{:0.9f}'.format(t))
     return t, it, sr
 
 
@@ -160,9 +151,7 @@ def quicksort(array):
         c = first_part + second_part
 
     t = time.time() - st
-    print('{:0.9f}'.format(t))
-    print(sr)
-    print(it)
+
     return c
 
 
@@ -233,8 +222,16 @@ funk = lambda Array: bubble(Array)
 Allfunk.append(starter(funk, Array))
 funk = lambda Array: bubble_plus(Array)
 Allfunk.append(starter(funk, Array))
+funk = lambda Array: shaker(Array)
+Allfunk.append(starter(funk, Array))
+funk = lambda Array: vibor(Array)
+Allfunk.append(starter(funk, Array))
 funk = lambda Array: vstavka(Array)
 Allfunk.append(starter(funk, Array))
+funk = lambda Array: shell_sort(Array)
+Allfunk.append(starter(funk, Array))
+
+
 ####################
 
 def history():
