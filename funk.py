@@ -141,12 +141,16 @@ def quicksort(array):
     it = 0
     sr = 0
     if len(array) == 1 or len(array) == 0:
+        sr += 1
         return array
     else:
+        sr += 1
         ved = array[0]
         i = 0
         for j in range(len(array) - 1):
+            it += 1
             if array[j + 1] < ved:
+                sr += 1
                 array[j + 1], array[i + 1] = array[i + 1], array[j + 1]
                 i += 1
         array[0], array[i] = array[i], array[0]
@@ -157,7 +161,8 @@ def quicksort(array):
 
     t = time.time() - st
     print('{:0.9f}'.format(t))
-
+    print(sr)
+    print(it)
     return c
 
 

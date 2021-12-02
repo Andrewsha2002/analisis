@@ -14,5 +14,6 @@ for i in range(2,40,2):
     funk.shaker(a[:])
     funk.vstavka(a[:])
     funk.shell_sort(a[:])
+
 print(a[:])
 #hello world
