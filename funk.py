@@ -96,6 +96,7 @@ def vstavka(array):
         j = i - 1
         while (j >= 0 and temp < array[j]):
             sr += 1
+            it += 1
             array[j + 1] = array[j]
             j = j - 1
         array[j + 1] = temp
@@ -112,8 +113,10 @@ def shell_sort(array):
     sr = 0
     while step > 0:
         sr += 1
+
         for i in range(step, len(array)):
             j = i
+            it += 1
             delta = j - step
             while delta >= 0 and array[delta] > array[j]:
                 array[delta], array[j] = array[j], array[delta]
@@ -235,6 +238,12 @@ Allfunk.append(starter(funk, Array))
 funk = lambda Array: vibor(Array)
 Allfunk.append(starter(funk, Array))
 funk = lambda Array: vstavka(Array)
+Allfunk.append(starter(funk, Array))
+funk = lambda Array: vibor(Array)
+Allfunk.append(starter(funk, Array))
+funk = lambda Array: shaker(Array)
+Allfunk.append(starter(funk, Array))
+funk = lambda Array: shell_sort(Array)
 Allfunk.append(starter(funk, Array))
 funk = lambda Array: shell_sort(Array)
 Allfunk.append(starter(funk, Array))
