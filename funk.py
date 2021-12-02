@@ -196,21 +196,29 @@ def vizualize(Allfunk):
     fg=plt.figure(1)  
     plt.subplot(131)  
     for i in range(len(Allfunk)):
+        #print([Allfunk[i][j][0] for j in range(20)])
         plt.plot([i for i in range(2,42,2)],[Allfunk[i][j][0] for j in range(20)],Color[i])
     plt.ylabel('Игрики') 
     plt.xlabel('Иксы')     
-    fg=plt.figure(1) 
-    
+    fg=plt.figure(1)
+     
     plt.subplot(132)
     for i in range(len(Allfunk)):
-        plt.plot([i for i in range(2,42,2)],[Allfunk[i][j][1] for j in range(20)],Color[i])
+        Y=[Allfunk[i][j][1] for j in range(20)]
+        #plt.plot([i for i in range(2,42,2)],Y,Color[i])
+        #print(Y)
+        plt.plot([i for i in range(2,42,2)],Y,Color[i])
+        
     plt.ylabel('Игрики')
     plt.xlabel('Иксы')  
     fg=plt.figure(1)
-    
+
     plt.subplot(133)
     for i in range(len(Allfunk)):
-        plt.plot([i for i in range(2,42,2)],[Allfunk[i][j][2] for j in range(20)],Color[i])
+       Y=[Allfunk[i][j][2] for j in range(20)]
+       #plt.plot([i for i in range(2,42,2)],Y,Color[i])
+       #print(Y)
+       plt.plot([i for i in range(2,42,2)],Y,Color[i])
     plt.ylabel('Игрики')
     plt.xlabel('Иксы')
     
@@ -237,9 +245,23 @@ Allfunk.append(starter(funk, Array))
 def history():
     for i in range(len(Allfunk)):
         print(Color[i]+' - '+Name[i])
-    
+    print("Время")
+    for i in range(len(Allfunk)):
+        Y=[Allfunk[i][j][0] for j in range(20)]
+        print(Y)
+    print("Число сравнений")
+    for i in range(len(Allfunk)):
+        Y=[Allfunk[i][j][1] for j in range(20)]
+        print(Y)
+    print("Число итераций")
+    for i in range(len(Allfunk)):
+        Y=[Allfunk[i][j][2] for j in range(20)]
+        print(Y)
 #print(Allfunk)
 history()
+#for i in range(len(Allfunk)):
+    #print(Allfunk[i])
+#print("##################################################")
 vizualize(Allfunk)
 #hello world!
 #hello world!
