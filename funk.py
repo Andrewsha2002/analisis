@@ -169,15 +169,22 @@ def quicksort(array):
 
 
 Allfunk = []
+Color=['blue','green','red','darkviolet','purple','yellow','black']
+Name=['bubble','bubble_plus','shaker','vibor','vstavka','shell_sort','quicksort']
+a=-100
+b=100
+Array = [[randint(a, b) for i in range(j)]for j in range(2, 42, 2)]
+#print(Array)
+#print("#################################################################")
 
-
-def starter(a, b, funk):  # a,b - раницы диапазона случайных чисел, funk() - функция сортировки
+def starter(funk, Array):  # a,b - раницы диапазона случайных чисел, funk() - функция сортировки
     Sred = []
     sred1 = []
-    for j in range(2, 42, 2):
+    for j in range(20):
         for i in range(10):
-            Array = [randint(a, b) for i in range(j)]
-            time, n, l = funk(Array)
+            Array1 = Array[j].copy()
+            #print(Array1)
+            time, n, l = funk(Array1)
             if i == 0:
                 sred1.append(time)
                 sred1.append(n)
@@ -186,45 +193,57 @@ def starter(a, b, funk):  # a,b - раницы диапазона случайн
                 sred1[0] = (sred1[0] + time) / 2
                 sred1[1] = (sred1[1] + n) / 2
                 sred1[2] = (sred1[2] + l) / 2
+            #print(sred1)
         Sred.append(sred1)
+        #print(sred1)
         sred1 = []
+
+    #print(Sred)
+    #print(len(Sred))
     return Sred
 
 
 def vizualize(Allfunk):
-    plt.figure(1)  # Первое окно
-    plt.subplot(211)  # Расположение графика
+    fg=plt.figure(1)  
+    plt.subplot(131)  
     for i in range(len(Allfunk)):
-        plt.plot([Allfunk[i][j][0] for j in range(20)])
-
-    plt.figure(2)
-    plt.subplot(211)  # Расположение графика
+        plt.plot([i for i in range(2,42,2)],[Allfunk[i][j][0] for j in range(20)],Color[i])
+    plt.ylabel('Игрики') 
+    plt.xlabel('Иксы')     
+    fg=plt.figure(1) 
+    
+    plt.subplot(132)
     for i in range(len(Allfunk)):
-        plt.plot([Allfunk[i][j][1] for j in range(20)])
-
-    plt.figure(3)
-    plt.subplot(211)  # Расположение графика
+        plt.plot([i for i in range(2,42,2)],[Allfunk[i][j][1] for j in range(20)],Color[i])
+    plt.ylabel('Игрики')
+    plt.xlabel('Иксы')  
+    fg=plt.figure(1)
+    
+    plt.subplot(133)
     for i in range(len(Allfunk)):
-        plt.plot([Allfunk[i][j][2] for j in range(20)])
-
+        plt.plot([i for i in range(2,42,2)],[Allfunk[i][j][2] for j in range(20)],Color[i])
+    plt.ylabel('Игрики')
+    plt.xlabel('Иксы')
+    
     plt.show()
 
 
 #########################
 funk = lambda Array: bubble(Array)
-Allfunk.append(starter(-100, 100, funk))
+Allfunk.append(starter(funk, Array))
 funk = lambda Array: bubble_plus(Array)
-Allfunk.append(starter(-100, 100, funk))
-funk = lambda Array: shaker(Array)
-Allfunk.append(starter(-100, 100, funk))
-funk = lambda Array: vibor(Array)
-Allfunk.append(starter(-100, 100, funk))
+Allfunk.append(starter(funk, Array))
 funk = lambda Array: vstavka(Array)
-Allfunk.append(starter(-100, 100, funk))
-funk = lambda Array: shell_sort(Array)
-Allfunk.append(starter(-100, 100, funk))
-
+Allfunk.append(starter(funk, Array))
 ####################
 
-print(Allfunk)
+def history():
+    for i in range(len(Allfunk)):
+        print(Color[i]+' - '+Name[i])
+    
+#print(Allfunk)
+history()
 vizualize(Allfunk)
+#hello world!
+#hello world!
+#hello world!
