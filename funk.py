@@ -239,8 +239,7 @@ def vizualize(Allfunk):
     plt.show()
 
 #########################
-funk = lambda Array: quickanal(Array)
-Allfunk.append(starter(funk, Array))
+
 funk = lambda Array: bubble(Array)
 Allfunk.append(starter(funk, Array))
 funk = lambda Array: bubble_plus(Array)
@@ -253,7 +252,8 @@ funk = lambda Array: vstavka(Array)
 Allfunk.append(starter(funk, Array))
 funk = lambda Array: shell_sort(Array)
 Allfunk.append(starter(funk, Array))
-
+funk = lambda Array: quickanal(Array)
+Allfunk.append(starter(funk, Array))
 
 
 ####################
