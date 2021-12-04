@@ -133,6 +133,7 @@ def shell_sort(array):
 
 
 def quicksort(array):
+    T = []
     st = time.time()
     it = 0
     sr = 0
@@ -156,8 +157,16 @@ def quicksort(array):
         c = first_part + second_part
 
     t = time.time() - st
+    T.append(t)
+    T.append(it)
+    T.append(sr)
 
-    return c
+    return T
+
+def quickanal(array):
+    a = quicksort(array)
+
+    return a[0],a[1],a[2]
 
 
 
@@ -229,8 +238,9 @@ def vizualize(Allfunk):
     
     plt.show()
 
-
 #########################
+funk = lambda Array: quickanal(Array)
+Allfunk.append(starter(funk, Array))
 funk = lambda Array: bubble(Array)
 Allfunk.append(starter(funk, Array))
 funk = lambda Array: bubble_plus(Array)
