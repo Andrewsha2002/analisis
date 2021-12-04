@@ -29,6 +29,7 @@ def bubble_plus(array):
     sr = 0
     while r > 0:
         it += 1
+        sr += 1
 
         for i in range(1, r):
             it += 1
@@ -50,6 +51,7 @@ def shaker(array):
     sr = 0
     while left <= right:
         it += 1
+        sr += 1
         for i in range(left, right, +1):
             it += 1
             if array[i] > array[i + 1]:
@@ -113,7 +115,7 @@ def shell_sort(array):
     sr = 0
     while step > 0:
         sr += 1
-
+        it += 1
         for i in range(step, len(array)):
             j = i
             it += 1
@@ -239,14 +241,9 @@ funk = lambda Array: vibor(Array)
 Allfunk.append(starter(funk, Array))
 funk = lambda Array: vstavka(Array)
 Allfunk.append(starter(funk, Array))
-funk = lambda Array: vibor(Array)
-Allfunk.append(starter(funk, Array))
-funk = lambda Array: shaker(Array)
-Allfunk.append(starter(funk, Array))
 funk = lambda Array: shell_sort(Array)
 Allfunk.append(starter(funk, Array))
-funk = lambda Array: shell_sort(Array)
-Allfunk.append(starter(funk, Array))
+
 
 
 ####################
