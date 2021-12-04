@@ -12,7 +12,7 @@ def bubble(array):
     l = len(b)
     it = 0
     for i in range(l):
-        it += 1
+
         for j in range(0, l - i - 1):
             it += 1
             if b[j] > b[j + 1]:
@@ -28,7 +28,7 @@ def bubble_plus(array):
     it = 0
     sr = 0
     while r > 0:
-        it += 1
+
         sr += 1
 
         for i in range(1, r):
@@ -50,7 +50,7 @@ def shaker(array):
     it = 0
     sr = 0
     while left <= right:
-        it += 1
+
         sr += 1
         for i in range(left, right, +1):
             it += 1
@@ -76,7 +76,7 @@ def vibor(array):
     sr = 0
     for i in range(0, len(array) - 1):
         min = i
-        it += 1
+
         for j in range(i + 1, len(array)):
             it += 1
             if array[j] < array[min]:
@@ -102,7 +102,7 @@ def vstavka(array):
             array[j + 1] = array[j]
             j = j - 1
         array[j + 1] = temp
-        it += 1
+
     t = time.time() - st
 
     return t, it, sr
@@ -115,10 +115,10 @@ def shell_sort(array):
     sr = 0
     while step > 0:
         sr += 1
-        it += 1
+
         for i in range(step, len(array)):
             j = i
-            it += 1
+
             delta = j - step
             while delta >= 0 and array[delta] > array[j]:
                 array[delta], array[j] = array[j], array[delta]
@@ -134,7 +134,7 @@ def shell_sort(array):
 
 def quicksort(array):
     T = []
-    st = time.time()
+
     it = 0
     sr = 0
     if len(array) == 1 or len(array) == 0:
@@ -156,17 +156,18 @@ def quicksort(array):
         first_part.append(array[i])
         c = first_part + second_part
 
-    t = time.time() - st
-    T.append(t)
+
     T.append(it)
     T.append(sr)
 
     return T
 
 def quickanal(array):
+    st = time.time()
     a = quicksort(array)
+    t = time.time() - st
 
-    return a[0],a[1],a[2]
+    return t,a[0],a[1]
 
 
 
