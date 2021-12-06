@@ -125,7 +125,7 @@ def shell_sort(array):
                 j = delta
                 delta = j - step
                 it += 1
-                sr += 2
+                sr += 1
         step //= 2
 
     t = time.time() - st
@@ -142,7 +142,7 @@ def quicksort(array):
         return array
     else:
         sr += 1
-        ved = array[0]
+        ved = array[len(array)//2]
         i = 0
         for j in range(len(array) - 1):
             it += 1
@@ -158,6 +158,7 @@ def quicksort(array):
 
 
     T.append(it)
+
     T.append(sr)
 
     return T
@@ -173,7 +174,7 @@ def quickanal(array):
 
 
 Allfunk = []
-Color=['blue','green','red','darkviolet','purple','yellow','black']
+Color=['blue','green','red','orange','purple','yellow','black']
 Name=['bubble','bubble_plus','shaker','vibor','vstavka','shell_sort','quicksort']
 a=-100
 b=100
@@ -213,8 +214,8 @@ def vizualize(Allfunk):
     for i in range(len(Allfunk)):
         #print([Allfunk[i][j][0] for j in range(20)])
         plt.plot([i for i in range(2,42,2)],[Allfunk[i][j][0] for j in range(20)],Color[i])
-    plt.ylabel('Игрики') 
-    plt.xlabel('Иксы')     
+    plt.ylabel('время')
+    plt.xlabel('количество элементов в списке')
     fg=plt.figure(1)
      
     plt.subplot(132)
