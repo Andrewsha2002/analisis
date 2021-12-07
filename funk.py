@@ -225,8 +225,8 @@ def vizualize(Allfunk):
         #print(Y)
         plt.plot([i for i in range(2,42,2)],Y,Color[i])
         
-    plt.ylabel('Игрики')
-    plt.xlabel('Иксы')  
+    plt.ylabel('итерации')
+    plt.xlabel('количество элементов в списке')
     fg=plt.figure(1)
 
     plt.subplot(133)
@@ -235,8 +235,8 @@ def vizualize(Allfunk):
        #plt.plot([i for i in range(2,42,2)],Y,Color[i])
        #print(Y)
        plt.plot([i for i in range(2,42,2)],Y,Color[i])
-    plt.ylabel('Игрики')
-    plt.xlabel('Иксы')
+    plt.ylabel('сравнения')
+    plt.xlabel('количество элементов в списке')
     
     plt.show()
 
