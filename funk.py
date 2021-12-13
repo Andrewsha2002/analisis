@@ -8,37 +8,37 @@ from random import randint
 def bubble(array):
     b = array
     sr = 0
-    st = time.time()
+    st = time.perf_counter()
     l = len(b)
     it = 0
     for i in range(l):
 
         for j in range(0, l - i - 1):
-            it += 1
+            sr += 1
             if b[j] > b[j + 1]:
                 b[j], b[j + 1] = b[j + 1], b[j]
-                sr += 1
-    t = time.time() - st
+                it += 1
+    t = time.perf_counter() - st
     return t, it, sr
 
 
 def bubble_plus(array):
     r = len(array)
-    st = time.time()
+    st = time.perf_counter()
     it = 0
     sr = 0
     while r > 0:
 
-        sr += 1
+
 
         for i in range(1, r):
-            it += 1
+            sr += 1
             if array[i] < array[i - 1]:
                 array[i], array[i - 1] = array[i - 1], array[i]
 
-                sr += 1
+                it += 1
         r -= 1
-    t = time.time() - st
+    t = time.perf_counter() - st
 
     return t, it, sr
 
@@ -46,89 +46,91 @@ def bubble_plus(array):
 def shaker(array):
     left = 0
     right = len(array) - 1
-    st = time.time()
+    st = time.perf_counter()
     it = 0
     sr = 0
     while left <= right:
 
         sr += 1
         for i in range(left, right, +1):
-            it += 1
+            sr += 1
             if array[i] > array[i + 1]:
                 array[i], array[i + 1] = array[i + 1], array[i]
-                sr += 1
+                it += 1
         right -= 1
 
         for i in range(right, left, -1):
-            it += 1
+            sr += 1
             if array[i - 1] > array[i]:
                 array[i], array[i - 1] = array[i - 1], array[i]
-                sr += 1
+                it += 1
         left += 1
-    t = time.time() - st
+    t = time.perf_counter() - st
 
     return t, it, sr
 
 
 def vibor(array):
-    st = time.time()
+    st = time.perf_counter()
     it = 0
     sr = 0
     for i in range(0, len(array) - 1):
         min = i
-
+        sr += 1
         for j in range(i + 1, len(array)):
-            it += 1
+
             if array[j] < array[min]:
-                sr += 1
+                it += 1
                 min = j
 
         array[i], array[min] = array[min], array[i]
-    t = time.time() - st
+    t = time.perf_counter() - st
 
     return t, it, sr
 
 
 def vstavka(array):
-    st = time.time()
+    st = time.perf_counter()
     it = 0
     sr = 0
     for i in range(1, len(array)):
         temp = array[i]
         j = i - 1
+        sr += 1
         while (j >= 0 and temp < array[j]):
-            sr += 1
+
             it += 1
             array[j + 1] = array[j]
             j = j - 1
         array[j + 1] = temp
 
-    t = time.time() - st
+    t = time.perf_counter() - st
 
     return t, it, sr
 
 
 def shell_sort(array):
-    st = time.time()
+    st = time.perf_counter()
     it = 0
     step = len(array) // 2
     sr = 0
     while step > 0:
-        sr += 1
+
 
         for i in range(step, len(array)):
             j = i
 
             delta = j - step
+            sr += 1
             while delta >= 0 and array[delta] > array[j]:
                 array[delta], array[j] = array[j], array[delta]
                 j = delta
                 delta = j - step
                 it += 1
-                sr += 1
+
         step //= 2
 
-    t = time.time() - st
+    t = time.perf_counter() - st
     return t, it, sr
 
 
@@ -137,19 +139,22 @@ def quicksort(array):
 
     it = 0
     sr = 0
+
+
     if len(array) == 1 or len(array) == 0:
-        sr += 1
+        it += 1
         return array
     else:
-        sr += 1
+        it += 1
         ved = array[len(array)//2]
         i = 0
         for j in range(len(array) - 1):
-            it += 1
+            sr += 1
             if array[j + 1] < ved:
-                sr += 1
+                it += 1
                 array[j + 1], array[i + 1] = array[i + 1], array[j + 1]
                 i += 1
+        it += 1
         array[0], array[i] = array[i], array[0]
         first_part = quicksort(array[:i])
         second_part = quicksort(array[i + 1:])
@@ -164,9 +169,9 @@ def quicksort(array):
     return T
 
 def quickanal(array):
-    st = time.time()
+    st = time.perf_counter()
     a = quicksort(array)
-    t = time.time() - st
+    t = time.perf_counter() - st
 
     return t,a[0],a[1]
 
@@ -187,6 +192,7 @@ def starter(funk, Array):  # a,b - раницы диапазона случай�
     sred1 = []
     for j in range(20):
         for i in range(10):
+            Array = [[randint(a, b) for i in range(j)] for j in range(2, 42, 2)]
             Array1 = Array[j].copy()
             #print(Array1)
             time, n, l = funk(Array1)
